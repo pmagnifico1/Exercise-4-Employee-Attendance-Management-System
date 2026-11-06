@@ -1,3 +1,5 @@
+package exceptions;
+
 /** Indicates an invalid attendance operation. */
 public class InvalidAttendanceException extends Exception {
   /**

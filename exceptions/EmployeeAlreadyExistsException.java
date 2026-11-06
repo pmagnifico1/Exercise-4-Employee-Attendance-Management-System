@@ -1,3 +1,5 @@
+package exceptions;
+
 /** Indicates that an employee ID is already registered. */
 public class EmployeeAlreadyExistsException extends Exception {
   /**

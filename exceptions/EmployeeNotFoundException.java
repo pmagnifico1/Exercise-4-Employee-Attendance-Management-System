@@ -1,3 +1,5 @@
+package exceptions;
+
 /** Indicates that an employee is not registered. */
 public class EmployeeNotFoundException extends Exception {
   /**
