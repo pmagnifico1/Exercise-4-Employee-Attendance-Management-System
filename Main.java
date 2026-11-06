@@ -17,7 +17,7 @@ public class Main {
   public static void main(String[] args) {
     AttendanceManager manager = new AttendanceManager();
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 1: Register Employees ==========");
     try {
       Employee emp1 = new Employee("E001", "Riri Williams", "IT");
       Employee emp2 = new Employee("E002", "Nick Fury", "HR");
@@ -30,7 +30,7 @@ public class Main {
           "Registration failed [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 2: Reject Duplicate Employee ==========");
     try {
       Employee duplicateEmp = new Employee("E001", "Thor Son of Odin", "Electrical");
       manager.registerEmployee(duplicateEmp);
@@ -39,7 +39,7 @@ public class Main {
           "Registration declined [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 3: Find Employee ==========");
     try {
       Employee found = manager.findEmployeeById("E001");
       System.out.println("Employee Found!");
@@ -52,7 +52,7 @@ public class Main {
           "Search failed [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 4: Handle Unknown Employee ==========");
     try {
       manager.findEmployeeById("E999");
     } catch (EmployeeNotFoundException e) {
@@ -61,7 +61,7 @@ public class Main {
               + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 5: Record Time-In ==========");
     try {
       manager.timeIn("E001");
       System.out.println("Time-in recorded successfully for E001.");
@@ -70,7 +70,7 @@ public class Main {
           "Time-in failed [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 6: Reject Duplicate Time-In ==========");
     try {
       manager.timeIn("E001");
     } catch (EmployeeNotFoundException | InvalidAttendanceException e) {
@@ -79,7 +79,7 @@ public class Main {
               + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 7: Reject Time-Out Without Time-In ==========");
     try {
       manager.timeOut("E002");
     } catch (EmployeeNotFoundException | InvalidAttendanceException e) {
@@ -88,7 +88,7 @@ public class Main {
               + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 8: Record Time-Out ==========");
     try {
       manager.timeOut("E001");
       System.out.println("Time-out recorded successfully for E001.");
@@ -97,7 +97,7 @@ public class Main {
           "Time-out failed [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 9: Record Another Attendance ==========");
     try {
       manager.timeIn("E001");
       System.out.println("New active record created for E001.");
@@ -108,7 +108,7 @@ public class Main {
           "Time-in/out failed [" + e.getClass().getSimpleName() + "]: " + e.getMessage());
     }
 
-    System.out.println("----------------------------------------");
+    System.out.println("\n========== Test Case 10: Display Completed Records ==========");
     try {
       List<AttendanceRecord> completedRecords = manager.getCompletedAttendanceRecords("E001");
       System.out.println("Completed Records for E001:");
